@@ -12,11 +12,11 @@ Bash script for patching/cracking Sublime Text on Linux including newest build 4
 1. Clone repository
 2. Add exec rights to the script if needed
 ```bash
-chmod +x ./sublime_patch.sh
+chmod +x ./sublime_patch-v4121.sh
 ```
 3. Run script with superuser privileges
 ```bash
-sudo ./sublime_patch.sh
+sudo ./sublime_patch-v4121.sh
 ```
 4. Done
 
