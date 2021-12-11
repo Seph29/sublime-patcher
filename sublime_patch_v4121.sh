@@ -25,6 +25,7 @@ prompt_yn() {
 get_license_path() {
   locations=(
     "/home/$SUDO_USER/.config/sublime-text/Local"
+    "/home/$SUDO_USER/.config/sublime-text-3/Local"
   )
   for i in "${locations[@]}"; do
     if [ -d "$i" ]; then
@@ -102,6 +103,9 @@ echo "Sublime Text ($BUILD) detected"
 
 # License file path
 LICENSE=$(get_license_path)
+
+# User preferences file path
+PREFERENCES="/home/$SUDO_USER/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 
 # Making backup
 BACKUP="${FILE}_backup"
