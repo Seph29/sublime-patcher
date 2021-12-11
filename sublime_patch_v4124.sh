@@ -25,6 +25,7 @@ prompt_yn() {
 get_license_path() {
   locations=(
     "/home/$SUDO_USER/.config/sublime-text/Local"
+    "/home/$SUDO_USER/.config/sublime-text-3/Local"
   )
   for i in "${locations[@]}"; do
     if [ -d "$i" ]; then
@@ -57,13 +58,13 @@ patch() {
 
 	# Patching an executable
 	echo "Patching '$1'..."
-	md5sum -c <<<"FD64BBD3575DD5D99553F030998659CC  $1" || exit
-	printf '\x48\x31\xC0\xC3'                 | dd of=$1 bs=1 seek=$((0x003764CA)) conv=notrunc status=none
-	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0036C615)) conv=notrunc status=none
-	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0036C630)) conv=notrunc status=none
-	printf '\x48\x31\xC0\x48\xFF\xC0\xC3'     | dd of=$1 bs=1 seek=$((0x00377F4D)) conv=notrunc status=none
-	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x0037618E)) conv=notrunc status=none
-	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x00360130)) conv=notrunc status=none
+	md5sum -c <<<"06CC120160969D2D28E1D3E7A36FFF55  $1" || exit
+	printf '\x48\x31\xC0\xC3'                 | dd of=$1 bs=1 seek=$((0x00383E72)) conv=notrunc status=none
+	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x00379F65)) conv=notrunc status=none
+	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x00379F80)) conv=notrunc status=none
+	printf '\x48\x31\xC0\x48\xFF\xC0\xC3'     | dd of=$1 bs=1 seek=$((0x003858EF)) conv=notrunc status=none
+	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x00383B36)) conv=notrunc status=none
+	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x0036D840)) conv=notrunc status=none
 
 	# Applyting license file
 	echo "Applying license..."
@@ -103,6 +104,9 @@ echo "Sublime Text ($BUILD) detected"
 
 # License file path
 LICENSE=$(get_license_path)
+
+# User preferences file path
+PREFERENCES="/home/$SUDO_USER/Library/Application Support/Sublime Text 3/Packages/User/Preferences.sublime-settings"
 
 # Making backup
 BACKUP="${FILE}_backup"
