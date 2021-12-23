@@ -1,5 +1,5 @@
 # sublime-patcher
-Bash script for patching/cracking Sublime Text on Linux including newest build 4121
+Bash script for patching/cracking Sublime Text v4126 on Linux
 
 > **NOTES**
 > 
