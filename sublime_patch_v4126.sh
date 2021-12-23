@@ -58,7 +58,7 @@ patch() {
 
 	# Patching an executable
 	echo "Patching '$1'..."
-	md5sum -c <<<"FECA809A08FD89F63C7CB9DA23089967  $&" || exit
+	md5sum -c <<<"FECA809A08FD89F63C7CB9DA23089967  $1" || exit
 	printf '\x48\x31\xC0\xC3'                 | dd of=$1 bs=1 seek=$((0x00385492)) conv=notrunc status=none
 	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0037B675)) conv=notrunc status=none
 	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0037B68B)) conv=notrunc status=none
