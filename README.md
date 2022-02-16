@@ -1,5 +1,5 @@
 # sublime-patcher
-Bash script for patching/cracking Sublime Text v4126 on Linux
+Bash script for patching/cracking Sublime Text v4127 on Linux
 
 > **NOTES**
 > 
@@ -12,11 +12,11 @@ Bash script for patching/cracking Sublime Text v4126 on Linux
 1. Clone repository
 2. Add exec rights to the script if needed
 ```bash
-chmod +x ./sublime_patch-v4126.sh
+chmod +x ./sublime_patch-v4127.sh
 ```
 3. Run script with superuser privileges
 ```bash
-sudo ./sublime_patch-v4126.sh
+sudo ./sublime_patch-v4127.sh
 ```
 4. Done
 
