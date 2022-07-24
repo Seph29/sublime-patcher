@@ -58,13 +58,13 @@ patch() {
 
 	# Patching an executable
 	echo "Patching '$1'..."
-	md5sum -c <<<"5559E20999FF4C017110BAC39A15A2CD  $1" || exit
-	printf '\x48\x31\xC0\xC3'                 | dd of=$1 bs=1 seek=$((0x00384544)) conv=notrunc status=none
-	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0037A637)) conv=notrunc status=none
-	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x0037A652)) conv=notrunc status=none
-	printf '\x48\x31\xC0\x48\xFF\xC0\xC3'     | dd of=$1 bs=1 seek=$((0x00386130)) conv=notrunc status=none
-	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x00384208)) conv=notrunc status=none
-	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x0036DE40)) conv=notrunc status=none
+	md5sum -c <<<"995ECF34C58C6096E2AA7570BAC2B7A6  $1" || exit
+	printf '\x48\x31\xC0\xC3'                 | dd of=$1 bs=1 seek=$((0x003A1BF4)) conv=notrunc status=none
+	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x00397CE7)) conv=notrunc status=none
+	printf '\x90\x90\x90\x90\x90'             | dd of=$1 bs=1 seek=$((0x00397D02)) conv=notrunc status=none
+	printf '\x48\x31\xC0\x48\xFF\xC0\xC3'     | dd of=$1 bs=1 seek=$((0x003A37E0)) conv=notrunc status=none
+	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x003A18B8)) conv=notrunc status=none
+	printf '\xC3'                             | dd of=$1 bs=1 seek=$((0x0038B4D0)) conv=notrunc status=none
 	# Applyting license file
 	echo "Applying license..."
 	echo "Free license <3" > $2
